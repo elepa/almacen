@@ -10,14 +10,12 @@ import { ProductRepository } from "../../model/product.repository";
 export class StoreComponent  {
 
   public selectedCategory = '';
-  // to get a page of products, and the second is to change the size of the pages, allowing the number of products that each page contains to be altered. 
-
   public productsPerPage = 4;
   public selectedPage = 1;
 
-  
+
   constructor(private repository: ProductRepository) {}
-    
+
 
   get products(): Product[] {
       let pageIndex = (this.selectedPage - 1) * this.productsPerPage
@@ -47,10 +45,5 @@ public Cat:string='';
           .getProducts(this.selectedCategory).length / this.productsPerPage)
   }
 
-//reemplaza esto POR LA DE ARRIBA DE LA DIRECTIVA   
-//get pageNumbers(): number[] {
-//      return Array(Math.ceil(this.repository
-//          .getProducts(this.selectedCategory).length / this.productsPerPage))
-//              .fill(0).map((x, i) => i + 1);
-//   }
+
 }
